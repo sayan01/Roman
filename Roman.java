@@ -19,7 +19,7 @@ class Roman{
 				System.out.print("Enter Arabic Number: ");
 				int n = sc.nextInt();
 				if(n<0 || n>=4000){	// Maximum of 3999 can be represented in proper subtractive Roman numerals
-					System.err.print("Number cannot be converted to Roman.");
+					System.err.println("Number cannot be converted to Roman.");
 					System.exit(1);
 				}
 				System.out.println("Roman: "+roman(n));
