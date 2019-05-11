@@ -17,7 +17,7 @@ class Roman{
 					System.err.print("Number cannot be converted to Roman.");
 					System.exit(1);
 				}
-				// System.out.println("Roman: "+roman(n));
+				System.out.println("Roman: "+roman(n));
 				break;
 			default:
 				System.err.println("Invalid choice.");
@@ -39,7 +39,23 @@ class Roman{
 		}
 		return rv;
 	}
-	
+	public static String roman(int arabic){
+		String rv = "";
+		int[] val = {1,5,10,50,100,500,1000};
+		String vel = "IVXLCDM";
+		int k = val.length-1;
+		while(arabic > 0){
+			if(arabic/val[k] != 0){
+				int t = arabic/val[k];
+				arabic %= val[k];
+				for(int i = 0; i < t; i++)	rv += vel.charAt(k);
+			}
+			else{
+				k--;
+			}
+		}
+		return rv;
+	}
 	private static int r_d(char c){
 		c = Character.toUpperCase(c);
 		if(!"IVXLCDM".contains(c+"")){
