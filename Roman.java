@@ -66,8 +66,10 @@ class Roman{
 				for(int i = 0; i < t; i++)			// add as many symbols as required to express number
 					rv += vel.charAt(k);			
 			}
-			else if(k != 0 && (arabic+val[k-1])/val[k] != 0){	// if the symbol could be just used, 
-				arabic = (arabic + val[k-1])%val[k];			// if number was more by smaller symbol's value, then
+			else if(k != 0 && (arabic+val[k-1])/val[k] != 0 && val[k-1] == 0.2 * val[k]){	
+				// if the symbol could be just used, if number was one time more by smaller symbol's value, but smaller is
+				// 1/5th of current symbol (not with 2x pairs, like V and X, only with 5x pairs, eg I-V,X-L,C-D) then
+				arabic = (arabic + val[k-1])%val[k];
 				rv += vel.charAt(k-1) + "" + vel.charAt(k);		// add the smaller symbol + this symbol (eg. IV to represent 4)
 			}													
 			else{
