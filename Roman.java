@@ -48,7 +48,12 @@ class Roman{
 			if(arabic/val[k] != 0){
 				int t = arabic/val[k];
 				arabic %= val[k];
-				for(int i = 0; i < t; i++)	rv += vel.charAt(k);
+				for(int i = 0; i < t; i++)
+					rv += vel.charAt(k);
+			}
+			else if(k != 0 && (arabic+val[k-1])/val[k] != 0){
+				arabic = (arabic + val[k-1])%val[k];
+				rv += vel.charAt(k-1) + "" + vel.charAt(k);
 			}
 			else{
 				k--;
